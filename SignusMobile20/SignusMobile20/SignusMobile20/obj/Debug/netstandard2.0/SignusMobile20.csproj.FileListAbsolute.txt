@@ -1,0 +1,15 @@
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\bin\Debug\netstandard2.0\SignusMobile20.deps.json
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\bin\Debug\netstandard2.0\SignusMobile20.dll
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\bin\Debug\netstandard2.0\SignusMobile20.pdb
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.csproj.AssemblyReference.cache
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.GeneratedMSBuildEditorConfig.editorconfig
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.AssemblyInfoInputs.cache
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.AssemblyInfo.cs
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.csproj.CoreCompileInputs.cache
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.dll
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\refint\SignusMobile20.dll
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.pdb
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\ref\SignusMobile20.dll

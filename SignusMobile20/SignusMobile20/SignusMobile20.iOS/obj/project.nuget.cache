@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "I2oJGG7gCrn3toZK4YN9+WJ+zdsUyNvEuDCHsGhdWHOECP+BsOTXW7fiRKee0A1oiKrWKauFMkAcHAuPWSIh1Q==",
+  "success": true,
+  "projectFilePath": "D:\\Usuarios\\Cliente\\Documents\\SignusMobile20\\SignusMobile20\\SignusMobile20\\SignusMobile20.iOS\\SignusMobile20.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cliente\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
