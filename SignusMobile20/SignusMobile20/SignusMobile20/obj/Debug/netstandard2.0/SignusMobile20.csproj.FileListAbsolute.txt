@@ -13,3 +13,4 @@ D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\Signu
 D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\refint\SignusMobile20.dll
 D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\SignusMobile20.pdb
 D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\ref\SignusMobile20.dll
+D:\Usuarios\Cliente\Documents\SignusMobile20\SignusMobile20\SignusMobile20\SignusMobile20\obj\Debug\netstandard2.0\MainShell.xaml.g.cs

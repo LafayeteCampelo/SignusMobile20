@@ -10,7 +10,7 @@ namespace SignusMobile20
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new MainShell();
         }
 
         protected override void OnStart()
