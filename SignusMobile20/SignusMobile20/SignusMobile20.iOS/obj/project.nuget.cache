@@ -1,10 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "I2oJGG7gCrn3toZK4YN9+WJ+zdsUyNvEuDCHsGhdWHOECP+BsOTXW7fiRKee0A1oiKrWKauFMkAcHAuPWSIh1Q==",
+  "dgSpecHash": "zEt2SknTbtqFLijshNzfVKyf/xM2woKvfAfX34hlIdo2mHS3ZBuBG2mV+N1Bs1Nl9UQCMGLaqPPAKlJoDHb6WQ==",
   "success": true,
   "projectFilePath": "D:\\Usuarios\\Cliente\\Documents\\SignusMobile20\\SignusMobile20\\SignusMobile20\\SignusMobile20.iOS\\SignusMobile20.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Cliente\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.licensing\\20.4.0.54\\syncfusion.licensing.20.4.0.54.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.compression\\20.4.0.54\\syncfusion.xamarin.compression.20.4.0.54.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.xlsio\\20.4.0.54\\syncfusion.xamarin.xlsio.20.4.0.54.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],

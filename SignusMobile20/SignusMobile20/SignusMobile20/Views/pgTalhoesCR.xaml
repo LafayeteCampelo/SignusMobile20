@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignusMobile20.pgTalhoesCR"
+             Title="Talhões">
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem x:Name="ToolBarItem2" Command="{Binding .}"
+                     Clicked="Search_Clicked"
+                     Icon="ic_action_search.png"
+                     Text="Filtrar" />
+        <ToolbarItem x:Name="ToolBarItem3"
+                     Clicked="Informacoes_Clicked"
+                     Icon="ic_action_help_outline.png"
+                     Text="Informações"/>
+        <ToolbarItem x:Name="ToolBarItem1" Command="{Binding .}"
+                     Clicked="ExportarTalhoesCR_Clicked"
+                     Icon="Exp_excel.png"
+                     Order="Secondary"
+                     Text="Exportar para o excel" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+
+
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="2"/>
+            <SearchBar x:Name="SearchConteudo" 
+                       Grid.Row="0" 
+                       Grid.ColumnSpan="2" 
+                       Placeholder="Filtrar por fazenda" 
+                       IsVisible="False" 
+                       TextChanged="SearchConteudo_TextChanged" />
+
+            <Button x:Name="btnNovoTalhao" Text="Novo talhão"
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="Black" FontAttributes="Bold" 
+                        Clicked="NovoTalhoesCR_Clicked"
+                        Grid.Row="0"
+                        Grid.Column="0"/>
+            <Button x:Name="ImportarTalhoes" Text="Importar talhões"
+                        HorizontalOptions="FillAndExpand"
+                        TextColor="Black" FontAttributes="Bold" 
+                        Clicked="ImportarTalhoesCR_Clicked"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+
+
+            <!--<ScrollView Grid.ColumnSpan="2"
+                            BackgroundColor="White"
+                            Opacity="0.9"
+                            Grid.Row="1">-->
+            <StackLayout Padding="5" Grid.ColumnSpan="2" Grid.Row="1" BackgroundColor="White" Opacity="0.9">
+                <ListView x:Name="lstFazendas" 
+                        ItemTapped="lstFazendas_ItemTapped" IsVisible="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="40">
+                                <Label TextColor="#000000" Text="{Binding .}" VerticalTextAlignment="Center"></Label>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <!--<ListView x:Name="listaEstados" 
+                          ItemTapped="listaEstados_ItemTapped" IsVisible="False"/>-->
+
+                <ListView x:Name="lstTalhoesCR"
+                                  CachingStrategy="RecycleElement"
+                                  HasUnevenRows="True"
+                                  ItemTapped="AlternaDetalhes"
+                                  IsPullToRefreshEnabled="True"
+                                  IsVisible="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover"
+                                                    Clicked="DeleteTalhoesCR"
+                                                    IsDestructive="True"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Alterar"
+                                                    Clicked="AlterarTalhoesCR"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Amostragem MN"
+                                                    Clicked="EditarAmostragemMN"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Controle de formigas"
+                                                    Clicked="EditarContForm"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Plantio"
+                                                    Clicked="EditarPlantio"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Preparo de solo"
+                                                    Clicked="EditarPrepSolo"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Capinas químicas"
+                                                    Clicked="EditarCapQuim"
+                                                    CommandParameter="{Binding .}" />
+                                    <MenuItem Text="Fertilizações"
+                                                    Clicked="EditarFertilizaoes"
+                                                    CommandParameter="{Binding .}" />
+                                    <!--<MenuItem Text="Backup"
+                                                    Clicked="BackupBD"
+                                                    CommandParameter="{Binding .}" />-->
+                                </ViewCell.ContextActions>
+                                <Frame CornerRadius="5"
+                                       Margin="0"
+                                       BackgroundColor="#ffedae" 
+                                       Padding="10" 
+                                       BorderColor="Black">
+                                    <Grid ColumnSpacing="0"
+                                                RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label x:Name="lblTalhao"
+                                                    Grid.Row="0"
+                                                    Text="{Binding Talhao, StringFormat='Talhão: {0:F0}'}"
+                                                    FontSize="Medium"
+                                                    FontAttributes="Bold"
+                                                    TextColor="Orange" />
+                                        <Label Grid.Row="1"
+                                                    Text="{Binding Fazenda, StringFormat='Fazenda: {0:F0}'}"
+                                                    FontSize="Small" />
+                                        <Label Grid.Row="2"
+                                                    Grid.Column="0"
+                                                    FontSize="Small"
+                                                    FontAttributes="None">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Talhao, StringFormat='Talhão: {0:F0}'}" />
+                                                    <Span Text="; " />
+                                                    <Span Text="{Binding Subtalhao, StringFormat='Subtalh.: {0:F0}'}" />
+                                                    <Span Text="; " />
+                                                    <Span Text="{Binding Ciclo, StringFormat='Ciclo: {0:#}'}" />
+                                                    <Span Text="; " />
+                                                    <Span Text="{Binding Rotacao, StringFormat='Rotaç.: {0:#}'}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Image x:Name="Img1"
+                                                    Grid.Row="3"
+                                                    VerticalOptions="Center"
+                                                    Source="{Binding Imagem}" />
+                                        <Frame Grid.Row="4"
+                                                    CornerRadius="5"
+                                                    Margin="0"
+                                                    Padding="2"
+                                                    IsVisible="{Binding Visible}"
+                                                    IsEnabled="{Binding Visible}">
+                                            <Grid BackgroundColor="#fff9e4"
+                                                        ColumnSpacing="0"
+                                                        RowSpacing="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Row="0"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Empresa, StringFormat='Empresa: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="1"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Unidade, StringFormat='Unidade: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="2"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Fazenda, StringFormat='Fazenda: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="3"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Talhao, StringFormat='Talhão: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="4"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Subtalhao, StringFormat='Subtalhão: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="5"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Ciclo, StringFormat='Ciclo: {0:#}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="6"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Rotacao, StringFormat='Rotação: {0:#}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="7"
+                                                            Grid.Column="0"
+                                                            FontSize="Small"
+                                                            FontAttributes="None">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding EspEL, StringFormat='Espaçamento: {0:F2}'}" />
+                                                            <Span Text=" x " />
+                                                            <Span Text="{Binding EspEP, StringFormat='{0:F2} m'}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label Grid.Row="8"
+                                                            Grid.Column="0"
+                                                            Text="{Binding DataIniRot, StringFormat='Data de início da rotação: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="9"
+                                                            Grid.Column="0"
+                                                            Text="{Binding AreaTalh, StringFormat='Área do talhão: {0:F2} ha'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="10"
+                                                            Grid.Column="0"
+                                                            Text="{Binding AreaSubtalh, StringFormat='Área do subtalhão: {0:F2} ha'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="11"
+                                                            Grid.Column="0"
+                                                            Text="{Binding Especie, StringFormat='Espécie: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="12"
+                                                            Grid.Column="0"
+                                                            Text="{Binding MatGen, StringFormat='Mat. genético: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="13"
+                                                            Grid.Column="0"
+                                                            Text="{Binding SoloClasse, StringFormat='Classe solo: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Label Grid.Row="14"
+                                                            Grid.Column="0"
+                                                            Text="{Binding UnidMan, StringFormat='Unid. manejo: {0:F0}'}"
+                                                            FontSize="Small" />
+                                                <Button Grid.Row="15" 
+                                                        Grid.Column="0"
+                                                        Text="Editar polígono" 
+                                                        Clicked="EditPoligono" 
+                                                        CommandParameter="{Binding .}"
+                                                        FontSize="Small"/>
+                                            </Grid>
+                                        </Frame>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Label FontAttributes="Bold"
+                                                   FontSize="Small"
+                                                   Text="{Binding Name}"
+                                                   TextColor="Gray"
+                                                   VerticalTextAlignment="Center" />
+                                    <Image x:Name="ImgA"
+                                                   Source="{Binding StateIcon}"
+                                                   Margin="0,0,5,0"
+                                                   HeightRequest="20"
+                                                   WidthRequest="20"
+                                                   HorizontalOptions="End" />
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={x:Reference currentPage}, Path=BindingContext.RefreshItemsCommand}"
+                                                                      NumberOfTapsRequired="1"
+                                                                      CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+
+                </ListView>
+            </StackLayout>
+            <!--</ScrollView>-->
+
+
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

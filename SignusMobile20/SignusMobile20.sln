@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignusMobile20.Android", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignusMobile20.iOS", "SignusMobile20\SignusMobile20.iOS\SignusMobile20.iOS.csproj", "{8E8EA98E-1B73-477B-A9C0-64BC6BF389EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignusMobile20", "SignusMobile20\SignusMobile20\SignusMobile20.csproj", "{4E5613C7-D236-44A7-B2F2-3F21714D7BB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignusMobile20", "SignusMobile20\SignusMobile20\SignusMobile20.csproj", "{4E5613C7-D236-44A7-B2F2-3F21714D7BB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

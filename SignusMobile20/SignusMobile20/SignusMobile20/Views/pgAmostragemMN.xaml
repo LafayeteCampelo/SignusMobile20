@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignusMobile20.pgAmostragemMN"
+             Title="Lista de amostragens">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ToolBarItem3"
+                     Clicked="Informacoes_Clicked"
+                     Icon="ic_action_help_outline.png"
+                     Text="Informações"/>
+        <ToolbarItem Command="{Binding .}"
+                     Clicked="ExportarAmostragemMN_Clicked"
+                     Icon="Exp_excel.png"
+                     Order="Secondary"
+                     Text="Exportar para o Excel" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" 
+              Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+            <Button Text="Nova amostragem MN" 
+                    HorizontalOptions="FillAndExpand" 
+                    TextColor="Black" 
+                    Clicked="NovoAmostragemMN_Clicked" 
+                    Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Label x:Name="Fazenda" 
+                    FontSize="Small" 
+                    FontAttributes="Bold" 
+                    TextColor="Black" 
+                    Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdTalhao" 
+                    FontSize="Small" 
+                    FontAttributes="Bold" 
+                    TextColor="Black" 
+                    Grid.Row="2" Grid.ColumnSpan="2"/>
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9"  Grid.Row="3">
+                <StackLayout Padding="5" Grid.ColumnSpan="2">
+                    <ListView x:Name="lstAmostragemMN" 
+                          CachingStrategy="RecycleElement"
+                          HasUnevenRows="True" 
+                          ItemTapped="AlternaDetalhes"
+                          IsPullToRefreshEnabled="True">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remover" Clicked="DeleteAmostr" IsDestructive="True" CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Alterar" Clicked="AlterarAmostragemMN" CommandParameter="{Binding .}"/>
+                                        <!--<MenuItem Text="Medições" Clicked="EditarMedicoes" CommandParameter="{Binding .}"/>-->
+                                        <MenuItem Text="Parcelas de amostragens" Clicked="EditarParcelasMedArv" CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Medições" Clicked="EditarMedicaoArvores" CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Amostragem solos" Clicked="EditarAmostSolos" CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Amostragem tecidos" Clicked="EditarAmostTecidos" CommandParameter="{Binding .}"/>
+                                    </ViewCell.ContextActions>
+
+                                    <Frame CornerRadius="5" 
+                                   Margin="0" 
+                                   BackgroundColor="#ffedae" 
+                                   Padding="10"
+                                   BorderColor="Black">
+                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblPKAmostragemMN" Grid.Row="0" 
+                                            Text="{Binding PKAmostragemMN, StringFormat='Código da amostragem: {0:F0}'}" 
+                                            FontSize="Medium"  
+                                            FontAttributes="Bold" 
+                                            TextColor="Orange"/>
+                                            <Label Grid.Row="1"
+                                            Text="{Binding IdAmostragem, StringFormat='Identif. da amostragem: {0:F0}'}" 
+                                            FontSize="Small"/>
+                                            <Label Grid.Row="2"
+                                            Text="{Binding DataMedic, StringFormat='Data da amostragem: {0:F0}'}" 
+                                            FontSize="Small" FontAttributes="Bold"/>
+
+                                            <Image x:Name="Img1" Grid.Row="3"
+                                            VerticalOptions="Center"
+                                            Source="{Binding Imagem}"/>
+                                            <Frame Grid.Row="4" 
+                                           CornerRadius="5" 
+                                           Margin="0" 
+                                           Padding="2" 
+                                           IsVisible="{Binding Visible}">
+                                                <Grid BackgroundColor="#fff9e4" 
+                                                  ColumnSpacing="0" 
+                                                  RowSpacing="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding IdAmostragem, StringFormat='Identif. da amostragem: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataAmost, StringFormat='Data: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding Objetivo, StringFormat='Objetivo: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="3" Grid.Column="0" Text="{Binding NParcelas, StringFormat='Núm. de parcelas: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="4" Grid.Column="0" Text="{Binding NArvParc, StringFormat='Núm. de árvores: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="5" Grid.Column="0" Text="{Binding NRepTecidosTalh, StringFormat='Núm. rep. am. tecidos/talh.: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="6" Grid.Column="0" Text="{Binding NRepTecidosParc, StringFormat='Núm. rep. am. tecicos/parc.: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="7" Grid.Column="0" Text="{Binding Folhas, StringFormat='Folhas {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="8" Grid.Column="0" Text="{Binding Galhos, StringFormat='Galhos: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="9" Grid.Column="0" Text="{Binding Casca, StringFormat='Casca: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="10" Grid.Column="0" Text="{Binding Lenho, StringFormat='Lenho: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="11" Grid.Column="0" Text="{Binding Raizes, StringFormat='Raízes: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="12" Grid.Column="0" Text="{Binding NRepSoloTalh, StringFormat='Núm. rep. am. solos/talh.: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="13" Grid.Column="0" Text="{Binding NRepSoloParc, StringFormat='Núm. rep. am. solos/parc.: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="14" Grid.Column="0" Text="{Binding NCamadasSolo, StringFormat='Núm. camadas aval.: {0:#}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="15" Grid.Column="0" Text="{Binding Responsavel, StringFormat='Responsável: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="16" Grid.Column="0" Text="{Binding Observacoes, StringFormat='Observações: {0:F0}'}" FontSize="Small"/>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

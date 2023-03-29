@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignusMobile20.pgAddTalhoesCR"
+             Title="Adicionar Talhoões">
+
+    
+    
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Label Text="Código do talhão: " FontSize="Medium"  FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="PKTalhoesCR" FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+            <!--<Entry x:Name="PKTalhoesCRSQLite" FontSize="Small" IsEnabled="False" Grid.Row="0" Grid.Column="1" Placeholder="Código da operação" 
+                       HorizontalOptions="FillAndExpand"/>-->
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="1">
+                <StackLayout Padding="5">
+                    <Label Text="Empresa:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Empresa" FontSize="Small" Placeholder="Nome da Empresa" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Unidade/Região:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Unidade" FontSize="Small" Placeholder="Identificação da unidade ou região" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Fazenda/Projeto:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Fazenda" FontSize="Small" Placeholder="Nome da fazenda ou projeto" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Talhão:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Talhao" FontSize="Small" Placeholder="Identificação do talhão" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Subtalhão:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Subtalhao" FontSize="Small" Placeholder="Identificação do subtalhão" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Ciclo:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Ciclo" FontSize="Small" Placeholder="Número do ciclo" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Rotação:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Rotacao" FontSize="Small" Placeholder="Número da rotação" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Espaç. entre linhas:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="EspEL" FontSize="Small" Placeholder="Espaçamento entre linhas (m)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Espaç. entre plantas:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="EspEP" FontSize="Small" Placeholder="Espaçamento entre plantas (m)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Data início da rot.:" FontAttributes="Bold" TextColor="Black"/>
+                    <DatePicker x:Name="DataIniRot" Format="dd/MM/yyyy" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Área do talh.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="AreaTalh" FontSize="Small" Placeholder="Área do talhão (ha)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Área do subtalh.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="AreaSubtalh" FontSize="Small" Placeholder="Área do subtalhão (ha)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Espécie:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Especie" FontSize="Small" Placeholder="Identificação da espécie" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Mat. genético:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="MatGen" FontSize="Small" Placeholder="Identificação do material genético" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Tipo de propagação:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Propag" FontSize="Small" Placeholder="Tipo de propagação (seminal/clonal/vegetativa)" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Classe de solo:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="SoloClasse" FontSize="Small" Placeholder="Classe de solo predominante" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Unidade de manejo:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="UnidMan" FontSize="Small" Placeholder="Unidade de manejo operacional" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Latitude (G):" FontAttributes="Bold" TextColor="Black"/>
+                    <!--<Button Text="Obter do GPS" WidthRequest="130" HorizontalOptions="End"/>-->
+                    <Entry x:Name="LatitudeLocG" FontSize="Small" Placeholder="Latitude (graus)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Latitude (M):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="LatitudeLocM" FontSize="Small" Placeholder="Latitude (minutos)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Latitude (S):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="LatitudeLocS" FontSize="Small" Placeholder="Latitude (segundos)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Longitude (G):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="LongitudeLocG" FontSize="Small" Placeholder="Longitude (graus)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Longitude (M):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="LongitudeLocM" FontSize="Small" Placeholder="Longitude (minutos)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Longitude (S):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="LongitudeLocS" FontSize="Small" Placeholder="Longitude (segundos)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="UTM (N):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="UTMN" FontSize="Small" Placeholder="Coordenada UTM (N)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="UTM (E):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="UTME" FontSize="Small" Placeholder="Coordenada UTM (E)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Datum de ref.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Datum" FontSize="Small" Placeholder="Datum de referência" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Zona:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Zona" FontSize="Small" Placeholder="Zona" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Latitude (N/S):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Lat" FontSize="Small" Placeholder="Latitude (N/S)" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Longitude (E/W):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Lon" FontSize="Small" Placeholder="Longitude (E/W)" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Observações:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Observacoes" FontSize="Small" Placeholder="Observações" 
+                       HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            <BoxView Color="#ffdb58" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="2" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="2" Grid.Column="1" Clicked="SaveTalhoesCR" HorizontalOptions="FillAndExpand" 
+                    x:Name="SaveBtn"/>
+        </Grid>
+    </ContentPage.Content>
+
+    
+    
+    
+</ContentPage>
