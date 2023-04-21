@@ -1,12 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SignusMobile20.pgAddCFormigasOP">
+             x:Class="SignusMobile20.pgAddCFormigasOP"
+             Title="Adicionar Cont. de formigas">
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label Text="Código do talhão: " FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="PKTalhoesCR" FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="Código do contr. formigas:" FontSize="Small" FontAttributes="Bold" TextColor="Black" Grid.Row="1" Grid.Column="0"/>
+            <Label x:Name="PKCFormigasOP" FontSize="Small" FontAttributes="Bold" TextColor="Black" Grid.Row="1" Grid.Column="1"/>
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="2">
+                <StackLayout Padding="5">
+                    <Label Text="Operação:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="IdentifOperacao" FontSize="Small" Placeholder="Nome da operação" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Código do P.O.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="ProcedOperac" FontSize="Small" Placeholder="Código do procedimento operacional" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Tipo de controle:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="TipoContr" FontSize="Small" Placeholder="Tipo de controle de formigas" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Produto utilizado:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Produto" FontSize="Small" Placeholder="Nome do produto utilizado" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Dose:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Dose" FontSize="Small" Placeholder="Dose do produto" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Unidade da dose:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="UnidDose" FontSize="Small" Placeholder="Unidade da dose" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Método de controle:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="MetodoContr" FontSize="Small" Placeholder="Método de controle" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Equipamento:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Equipamento" FontSize="Small" Placeholder="Equipamento utilizado" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Data da operação:" FontAttributes="Bold" TextColor="Black"/>
+                    <DatePicker x:Name="DataContr" Format="dd/MM/yyyy" FontSize="Small" HorizontalOptions="FillAndExpand" />
+                    <Label Text="Núm. de horas" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NumHoras" FontSize="Small" Placeholder="Número de horas gastas" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Rendimento" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Rendimento" FontSize="Small" Placeholder="Rendimento operacional (horas/ha)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Empresa resp.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="EmpresaResp" FontSize="Small" Placeholder="Empresa responsável" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Observações" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Observacoes" FontSize="Small" Placeholder="Observações" 
+                       HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            <BoxView Color="#ffdb58" Grid.Row="3" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="3" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="3" Grid.Column="1" Clicked="SaveCFormigasOP" HorizontalOptions="FillAndExpand" 
+                    x:Name="SaveBtn"/>
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

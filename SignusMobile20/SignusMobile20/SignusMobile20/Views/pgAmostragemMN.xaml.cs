@@ -41,7 +41,7 @@ namespace SignusMobile20
             conn.CreateTable<AmostragemMN>();
             //conn.DropTable<ParcelasMedArv>();
             conn.CreateTable<ParcelasMedArv>();
-//            conn.CreateTable<MedicaoArvore1>();
+            conn.CreateTable<MedicaoArvore1>();
             conn.CreateTable<AmostSolos>();
             conn.CreateTable<AmostTecidos>();
             pktlhoescr = pktalhcr;
@@ -69,7 +69,7 @@ namespace SignusMobile20
 
         private void NovoAmostragemMN_Clicked(object sender, EventArgs e)
         {
-//            Navigation.PushAsync(new pgAddAmostragemMN(null, pktlhoescr, idfazenda, idtalhao));
+            Navigation.PushAsync(new pgAddAmostragemMN(null, pktlhoescr, idfazenda, idtalhao));
         }
 
         private void EditAmostragemMN(object sender, ItemTappedEventArgs e)
@@ -77,7 +77,7 @@ namespace SignusMobile20
             AmostragemMN details = e.Item as AmostragemMN;
             if (details != null)
             {
-//                Navigation.PushAsync(new pgAddAmostragemMN(details, pktlhoescr, idfazenda, idtalhao));
+                Navigation.PushAsync(new pgAddAmostragemMN(details, pktlhoescr, idfazenda, idtalhao));
             }
         }
 
@@ -275,7 +275,7 @@ namespace SignusMobile20
                 var amostragem = mi.CommandParameter as AmostragemMN;
                 if (amostragem != null)
                 {
-//                    await Navigation.PushAsync(new pgAddAmostragemMN(amostragem, pktlhoescr, idfazenda, idtalhao));
+                    await Navigation.PushAsync(new pgAddAmostragemMN(amostragem, pktlhoescr, idfazenda, idtalhao));
                 }
             }
             catch (Exception ex)
@@ -346,7 +346,7 @@ namespace SignusMobile20
                 //string sql = $"SELECT * FROM MedicaoArvore WHERE PKAmostragemMN = {amostragem.PKAmostragemMN}";
                 //try { conn.Query<MedicaoArvore>(sql); }
                 //catch { await DisplayAlert("Message", "Não foi possível abrir a consulta. Verifique o valor digitado.", "Ok"); }
-/*
+
                 await Navigation.PushAsync(new pgParcelasMedArv(amostragem.PKTalhoesCR.ToString(),
                     amostragem.PKAmostragemMN.ToString(),
                     "",
@@ -355,7 +355,7 @@ namespace SignusMobile20
                     amostragem.IdAmostragem,
                     amostragem.NParcelas,
                     amostragem.NArvParc)); ; ;
-*/
+
             }
         }
 
@@ -462,8 +462,8 @@ namespace SignusMobile20
                     //acrescenta mais árvores
                     try
                     {
-//                        var qryArvores = conn.Query<MedicaoArvore1>($"SELECT PKMedicaoArv1 FROM MedicaoArvore1 WHERE PKParcelasMedArv = {pkparc}");
-//                        if (qryArvores.Count() > 0) { narvtb = qryArvores.Count(); }
+                        var qryArvores = conn.Query<MedicaoArvore1>($"SELECT PKMedicaoArv1 FROM MedicaoArvore1 WHERE PKParcelasMedArv = {pkparc}");
+                        if (qryArvores.Count() > 0) { narvtb = qryArvores.Count(); }
                     }
                     catch { }
                     if (narvtb < narvam)
@@ -492,7 +492,7 @@ namespace SignusMobile20
             if (pkparc1 > 0)
             {
                 //Abre o formulário para edição das medições.
-//                await Navigation.PushAsync(new pgAddMedicaoArvoreGrd(null, pkamost, pkparc1.ToString(), idfazenda, idtalhao, idamostragem, idparc1));
+                await Navigation.PushAsync(new pgAddMedicaoArvoreGrd(null, pkamost, pkparc1.ToString(), idfazenda, idtalhao, idamostragem, idparc1));
             }
         }
 
@@ -563,7 +563,7 @@ namespace SignusMobile20
                 //string sql = $"SELECT * FROM MedicaoArvore WHERE PKAmostragemMN = {amostragem.PKAmostragemMN}";
                 //try { conn.Query<MedicaoArvore>(sql); }
                 //catch { await DisplayAlert("Message", "Não foi possível abrir a consulta. Verifique o valor digitado.", "Ok"); }
-/*
+
                 await Navigation.PushAsync(new pgAmostSolos(amostragem.PKTalhoesCR.ToString(),
                     amostragem.PKAmostragemMN.ToString(),
                     "",
@@ -572,7 +572,7 @@ namespace SignusMobile20
                     amostragem.IdAmostragem,
                     "",
                     1, 2));
-*/
+
             }
         }
 
@@ -736,7 +736,7 @@ namespace SignusMobile20
                 //string sql = $"SELECT * FROM MedicaoArvore WHERE PKAmostragemMN = {amostragem.PKAmostragemMN}";
                 //try { conn.Query<MedicaoArvore>(sql); }
                 //catch { await DisplayAlert("Message", "Não foi possível abrir a consulta. Verifique o valor digitado.", "Ok"); }
-/*
+
                 await Navigation.PushAsync(new pgAmostTecidos(amostragem.PKTalhoesCR.ToString(),
                     amostragem.PKAmostragemMN.ToString(),
                     idfazenda,
@@ -744,7 +744,7 @@ namespace SignusMobile20
                     amostragem.IdAmostragem,
                     "",
                     1, 1));
-*/
+
             }
         }
 
@@ -1303,13 +1303,13 @@ namespace SignusMobile20
                                 $"MedArv.HCopa, MedArv.Observacoes, MedArv.Selec FROM MedicaoArvore1 MedArv JOIN ParcelasMedArv Parc " +
                                 $"ON MedArv.PKParcelasMedArv = Parc.PKParcelasMedArv " +
                                 $"ORDER BY MedArv.PKParcelasMedArv, MedArv.ArvNum";
-/*
+
                 try { conn.Query<MedicaoArvore1>(sql); }
                 catch { await DisplayAlert("Message", "Não foi possível abrir a tabela MedicaoArvore1.", "Ok"); }
-*/
+
                 sql.First();
 
-/*
+
                 var ListaMedicoes = conn.Query<MedicaoArvore1>(sql);
 
                 if (ListaMedicoes.Count() > 0)
@@ -1360,7 +1360,7 @@ namespace SignusMobile20
                         }
                     }
                 }
-*/
+
 
                 //Acrescenta a planilha de amostragens de tecidos.
                 IWorksheet worksheet4 = workbook.Worksheets[4];

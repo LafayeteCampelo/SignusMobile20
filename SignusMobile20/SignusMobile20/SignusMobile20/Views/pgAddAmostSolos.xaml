@@ -1,12 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SignusMobile20.pgAddAmostSolos">
+             x:Class="SignusMobile20.pgAddAmostSolos"
+             Title="Adicionar Am. Solos">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdFazenda" 
+                   FontSize="Small" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" 
+                   Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdTalhao" 
+                   FontSize="Small" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" 
+                   Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdAmostragemMN" 
+                   FontSize="Small" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" 
+                   Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdParcela" 
+                FontSize="Small" 
+                FontAttributes="Bold" 
+                TextColor="Black" 
+                Grid.Row="3" Grid.ColumnSpan="2"/>
+
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="4">
+                <StackLayout Padding="5">
+                    <Label Text="Código da amostra:" FontAttributes="Bold" TextColor="Gray"/>
+                    <Entry x:Name="PKAmostSolos" FontSize="Small" Placeholder="Código da amostra de solos" 
+                       HorizontalOptions="FillAndExpand" IsEnabled="false"/>
+                    <Label Text="Ident. da amostra:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="IdAmostra" FontSize="Small" Placeholder="Identificação da amostra de solo" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Repeticao:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Repeticao" FontSize="Small" Placeholder="Repetição" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Data da amostragem:" FontAttributes="Bold" TextColor="Black"/>
+                    <DatePicker x:Name="DataAmostra" Format="dd/MM/yyyy" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Prof. inicial (cm):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="ProfIni" FontSize="Small" Placeholder="Profundidade inicial (cm)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Prof. final (cm):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="ProfFin" FontSize="Small" Placeholder="Profundidade final (cm)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Objetivo:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Objetivo" FontSize="Small" Placeholder="Objetivo da amostragem" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Núm. de am. simples:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NAmSimples" FontSize="Small" Placeholder="Número de amostras simples" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView Color="#ffedae" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
+
+                        <Label Text="Localização da amostragem:" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.ColumnSpan="4"/>
+                        <Button x:Name="btnGeoLocalizacao" Text="Capturar coord." Clicked="btnGeolocalizacaoClick" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        <Button x:Name="btnMostrarNoMapa" Text="Ver no mapa" Clicked="btnMostrarNoMapaClick" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+                        <Label Text="Latitude (GD):" FontAttributes="Bold" TextColor="Black" Grid.Row="2" Grid.Column="0"/>
+                        <Entry x:Name="Latit" FontSize="Small" Placeholder="Latitude (GD)" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged1" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Longitude (GD):" FontAttributes="Bold" TextColor="Black" Grid.Row="3" Grid.Column="0"/>
+                        <Entry x:Name="Longit" FontSize="Small" Placeholder="Longitude (GD)"
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged1" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Altitude (m):" FontAttributes="Bold" TextColor="Black" Grid.Row="4" Grid.Column="0"/>
+                        <Entry x:Name="Altit" FontSize="Small" Placeholder="Altitude (m)"
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Precis.h. (m):" FontAttributes="Bold" TextColor="Black" Grid.Row="5" Grid.Column="0"/>
+                        <Entry x:Name="PrecisH" FontSize="Small" Placeholder="Precisão horizontal (m)"
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
+                        <Label Text="Precis.v. (m):" FontAttributes="Bold" TextColor="Black" Grid.Row="6" Grid.Column="0"/>
+                        <Entry x:Name="PrecisV" FontSize="Small" Placeholder="Precisão vertical (m)"
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
+                    </Grid>
+
+                    <Label Text="Responsável:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Responsavel" FontSize="Small" Placeholder="Responsável pela amostragem" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Observações:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Observacoes" FontSize="Small" Placeholder="Observações" 
+                       HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            <BoxView Color="#ffdb58" Grid.Row="5" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="5" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="5" Grid.Column="1" Clicked="SaveAmostSolos" HorizontalOptions="FillAndExpand" 
+                    x:Name="SaveBtn"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1235,7 +1235,7 @@ namespace SignusMobile20
                 //Atualiza a página
                 //Navigation.InsertPageBefore(new pgAmostragemMN(talhao.PKTalhoesCR.ToString()), this);
                 //await Navigation.PopAsync();
-//                await Navigation.PushAsync(new pgCFormigasOP(talhao.PKTalhoesCR.ToString()));
+                await Navigation.PushAsync(new pgCFormigasOP(talhao.PKTalhoesCR.ToString()));
             }
 
         }
@@ -1256,7 +1256,7 @@ namespace SignusMobile20
                 //Atualiza a página
                 //Navigation.InsertPageBefore(new pgAmostragemMN(talhao.PKTalhoesCR.ToString()), this);
                 //await Navigation.PopAsync();
-//                await Navigation.PushAsync(new pgPlantioOP(talhao.PKTalhoesCR.ToString()));
+                await Navigation.PushAsync(new pgPlantioOP(talhao.PKTalhoesCR.ToString()));
             }
 
         }
@@ -1280,7 +1280,7 @@ namespace SignusMobile20
                 //Atualiza a página
                 //Navigation.InsertPageBefore(new pgAmostragemMN(talhao.PKTalhoesCR.ToString()), this);
                 //await Navigation.PopAsync();
-//                await Navigation.PushAsync(new pgPreparoSoloOP(talhao.PKTalhoesCR.ToString()));
+                await Navigation.PushAsync(new pgPreparoSoloOP(talhao.PKTalhoesCR.ToString()));
                 //}
             }
 
@@ -1305,7 +1305,7 @@ namespace SignusMobile20
                 //Atualiza a página
                 //Navigation.InsertPageBefore(new pgAmostragemMN(talhao.PKTalhoesCR.ToString()), this);
                 //await Navigation.PopAsync();
-//                await Navigation.PushAsync(new pgCapinasQuimOP(talhao.PKTalhoesCR.ToString()));
+                await Navigation.PushAsync(new pgCapinasQuimOP(talhao.PKTalhoesCR.ToString()));
                 //}
             }
 
@@ -1330,7 +1330,7 @@ namespace SignusMobile20
                 //Atualiza a página
                 //Navigation.InsertPageBefore(new pgAmostragemMN(talhao.PKTalhoesCR.ToString()), this);
                 //await Navigation.PopAsync();
-//                await Navigation.PushAsync(new pgFertilizacoesOP(talhao.PKTalhoesCR.ToString()));
+                await Navigation.PushAsync(new pgFertilizacoesOP(talhao.PKTalhoesCR.ToString()));
                 //}
             }
 
@@ -1402,7 +1402,7 @@ namespace SignusMobile20
                 if (talhao != null)
                 {
                     //Abre a tela pgAddTesteGPS com o parâmetro PKTalhoesCR
-//                    await Navigation.PushAsync(new pgAddTesteGPS(talhao.PKTalhoesCR.ToString()));
+                    await Navigation.PushAsync(new pgAddTesteGPS(talhao.PKTalhoesCR.ToString()));
                 }
             }
             catch (Exception ex)

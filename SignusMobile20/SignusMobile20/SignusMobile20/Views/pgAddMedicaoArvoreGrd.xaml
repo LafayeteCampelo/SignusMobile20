@@ -1,12 +1,140 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SignusMobile20.pgAddMedicaoArvoreGrd">
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             x:Class="SignusMobile20.pgAddMedicaoArvoreGrd"
+             Title="Adicionar Medicão">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ToolBarItem1"
+                     Clicked="Informacoes_Clicked"
+                     Icon="ic_action_help_outline.png"
+                     Text="Informações"/>
+    </ContentPage.ToolbarItems>
+
+
+    <ContentPage.BindingContext>
+        <local:DGridViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2"/>
+            <Button Text="Nova medição" HorizontalOptions="FillAndExpand" Clicked="NovaMedicaoArvore1_Clicked" Grid.Row="0" Grid.Column="0"/>
+            <Button x:Name="btnDelete" Text="Remover linha." HorizontalOptions="FillAndExpand" Clicked="RemoverSelec_Clicked" Grid.Row="0" Grid.Column="1"/>
+            <Label x:Name="IdFazenda" FontSize="Small" FontAttributes="Bold" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdTalhao" FontSize="Small" FontAttributes="Bold" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdAmostragemMN" FontSize="Small" FontAttributes="Bold" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+            <BoxView Color="#ffedae" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdParcelasMedArv" FontSize="Small" FontAttributes="Bold" Grid.Row="4" Grid.ColumnSpan="2"/>
+            <CollectionView x:Name="clvParcelas" 
+                      Grid.Row="5"
+                      Grid.ColumnSpan="2"
+                      HeightRequest="40"
+                      ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid Padding="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Check1}" Color="#000000" VerticalOptions="Center" CheckedChanged="OnCheckedChangedParc"/>
+                                <Label TextColor="#000000" Text="{Binding IdParcela}" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--        
+        <ListView x:Name="lstFazendas" 
+                  Grid.Row="5"
+                  Grid.ColumnSpan="2"
+                  ItemTapped="lstFazendas_ItemTapped" 
+                  HeightRequest="160">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="40">
+                        <StackLayout BackgroundColor="White">
+                            <Grid Padding="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Check1}" Color="#000000" VerticalOptions="Center" CheckedChanged="OnCheckedChangedFaz"/>
+                                <Label TextColor="#000000" Text="{Binding Fazendas}" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+-->
+
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                        AutoGenerateColumns="True"
+                        DefaultColumnWidth="100"
+                        AllowSorting="True"
+                        AllowTriStateSorting="True"
+                        AllowEditing="True"
+                        AllowMultiSorting="True"
+                        VerticalOverScrollMode="None"
+                        EditTapAction="OnTap"
+                        AllowDraggingColumn="True"
+                        AllowDraggingRow="True"
+                        SelectionMode="Single"
+                        NavigationMode="Cell" 
+                        Grid.Row="6" Grid.ColumnSpan="2" SelectionChanged="OnSelectionChange">
+
+
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:GridNumericColumn MappingName="PKMedicaoArv1" HeaderText="PK Medição" HeaderFontAttribute="Italic"  Format="0" AllowEditing="False"/>
+                    <syncfusion:GridNumericColumn MappingName="IdParcela" HeaderText="Parcela" HeaderFontAttribute="Bold" Format="0" AllowEditing="False"/>
+                    <syncfusion:GridNumericColumn MappingName="ArvNum" HeaderText="Árvore nº" HeaderFontAttribute="Bold" Format="0"/>
+                    <syncfusion:GridNumericColumn MappingName="FusteNum" HeaderText="Fuste nº" HeaderFontAttribute="Bold" Format="0"/>
+                    <syncfusion:GridTextColumn MappingName="TipoMedD" HeaderText="Tipo med. D" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="HTotal" HeaderText="Alt. total" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="MedD" HeaderText="DAP/CAP" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="HDom" HeaderText="Alt. dom." HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="HFuste" HeaderText="Alt. fuste" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="DCopa" HeaderText="Diâm. copa" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="HCopa" HeaderText="Alt. copa" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridTextColumn MappingName="Observacoes" HeaderText="Observações" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridSwitchColumn MappingName="Selec" HeaderText="Selecionar" HeaderFontAttribute="Bold"/>
+                    <syncfusion:GridNumericColumn MappingName="PKParcelasMedArv" HeaderText="PKParcelasMedArv" HeaderFontAttribute="Bold" IsHidden="True"/>
+                    <syncfusion:GridNumericColumn MappingName="CodMedicaoArv1SR" HeaderText="CodMedicaoArv1SR" HeaderFontAttribute="Bold" IsHidden="True"/>
+                    <syncfusion:GridNumericColumn MappingName="CodMedicaoArv1MN" HeaderText="CodMedicaoArv1MN" HeaderFontAttribute="Bold" IsHidden="True"/>
+                </syncfusion:SfDataGrid.Columns>
+
+                <!--<syncfusion:SfDataGrid.GroupColumnDescriptions>
+            <syncfusion:GroupColumnDescription ColumnName="PKParcelasMedArv" />
+        </syncfusion:SfDataGrid.GroupColumnDescriptions>-->
+
+            </syncfusion:SfDataGrid>
+
+            <BoxView Color="#ffdb58" Grid.Row="7" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="7" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="7" Grid.Column="1" Clicked="SaveMedicaoArvore" HorizontalOptions="FillAndExpand" 
+                        x:Name="SaveBtn"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

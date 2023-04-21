@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid13.0": {
           "dependencies": {
+            "Syncfusion.Xamarin.SfDataGrid": {
+              "target": "Package",
+              "version": "[21.1.41, )"
+            },
             "Syncfusion.Xamarin.XlsIO": {
               "target": "Package",
               "version": "[20.4.0.54, )"
@@ -108,6 +112,10 @@
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
+            },
+            "Syncfusion.Xamarin.SfDataGrid": {
+              "target": "Package",
+              "version": "[21.1.41, )"
             },
             "Syncfusion.Xamarin.XlsIO": {
               "target": "Package",

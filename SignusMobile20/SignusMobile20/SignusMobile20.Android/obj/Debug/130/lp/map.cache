@@ -1,5 +1,10 @@
 FormsViewGroup.dll
 SQLitePCLRaw.lib.e_sqlite3.android.dll
+Syncfusion.Core.XForms.Android.dll
+Syncfusion.SfComboBox.XForms.Android.dll
+Syncfusion.SfDataGrid.XForms.Android.dll
+Syncfusion.SfNumericTextBox.Android.dll
+Syncfusion.SfNumericTextBox.XForms.Android.dll
 Xamarin.AndroidX.Activity.dll
 Xamarin.AndroidX.Annotation.dll
 Xamarin.AndroidX.Annotation.Experimental.dll

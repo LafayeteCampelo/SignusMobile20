@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QXdACUiTzjdaIEy2zdcq/2w8PfJvL6RmmKAQ5gzvfN3qz3wkDor3tK+TVnn/ATPIrPiXRr1e0UveONh/UbtCmA==",
+  "dgSpecHash": "WopjeEsR9M7c3S86Eamtvkntkes9v/OvLWBBfcOYRNvdhb9BfAW5qftWZhTir2+ShH3Hj66B1XJeTYg6vqsaog==",
   "success": true,
   "projectFilePath": "D:\\Usuarios\\Cliente\\Documents\\SignusMobile20\\SignusMobile20\\SignusMobile20\\SignusMobile20\\SignusMobile20.csproj",
   "expectedPackageFiles": [
@@ -11,8 +11,13 @@
     "C:\\Users\\Cliente\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.4\\sqlitepclraw.provider.e_sqlite3.2.0.4.nupkg.sha512",
-    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.licensing\\20.4.0.54\\syncfusion.licensing.20.4.0.54.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.licensing\\21.1.41\\syncfusion.licensing.21.1.41.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.compression\\20.4.0.54\\syncfusion.xamarin.compression.20.4.0.54.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.core\\21.1.41\\syncfusion.xamarin.core.21.1.41.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\21.1.41\\syncfusion.xamarin.gridcommon.21.1.41.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\21.1.41\\syncfusion.xamarin.sfcombobox.21.1.41.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.sfdatagrid\\21.1.41\\syncfusion.xamarin.sfdatagrid.21.1.41.nupkg.sha512",
+    "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.sfnumerictextbox\\21.1.41\\syncfusion.xamarin.sfnumerictextbox.21.1.41.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\syncfusion.xamarin.xlsio\\20.4.0.54\\syncfusion.xamarin.xlsio.20.4.0.54.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\Cliente\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

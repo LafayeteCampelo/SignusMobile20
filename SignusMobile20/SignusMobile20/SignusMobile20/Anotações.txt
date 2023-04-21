@@ -1,7 +1,9 @@
 ﻿Fonte 1: SQLite in Xamarin Forms-Xamarin Forms in Hindi (https://www.youtube.com/watch?v=hmB-tuUO-fs)
-Fonte 2: 
-
-
-
+Fonte 2: Xamarin.Forms DataGrid: Getting Started (https://www.youtube.com/watch?v=rdPStxCSy5w&t=190s)
 
 Componentes instalados: 
+sqlite-net-pcl
+Syncfusion.Xamarin.SfDataGrid
+Syncfusion.Xamarin.XlsIO
+Xamarin.Essentials
+Xamarin.Forms

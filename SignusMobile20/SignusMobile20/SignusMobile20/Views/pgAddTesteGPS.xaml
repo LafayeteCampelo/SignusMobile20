@@ -2,11 +2,40 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SignusMobile20.pgAddTesteGPS">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Label Text="Código do talhão: " FontSize="Medium"  FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="PKTalhoesCR" FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="1">
+                <StackLayout Padding="5">
+                    <Label Text="Ponto:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Empresa" FontSize="Small" Placeholder="Nome da Empresa" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Unidade/Região:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Unidade" FontSize="Small" Placeholder="Identificação da unidade ou região" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Fazenda/Projeto:" FontAttributes="Bold" TextColor="Black"/>
+
+                </StackLayout>
+            </ScrollView>
+            <BoxView Color="#ffdb58" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="2" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="2" Grid.Column="1" HorizontalOptions="FillAndExpand" 
+                    x:Name="SaveBtn"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

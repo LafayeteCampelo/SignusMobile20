@@ -1,12 +1,102 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SignusMobile20.pgAddAmostragemMN">
+             x:Class="SignusMobile20.pgAddAmostragemMN"
+             Title="Adicionar amostragem">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdFazenda" FontSize="Small" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Label x:Name="IdTalhao" FontSize="Small" FontAttributes="Bold" TextColor="Black" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="2">
+                <StackLayout Padding="5">
+                    <Label Text="Código da amostragem: " FontAttributes="Bold" TextColor="Gray"/>
+                    <Entry x:Name="PKAmostragemMN" FontSize="Small" IsEnabled="False" Placeholder="Código da amostragem" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Identif. da amostragem" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="IdAmostragem" FontSize="Small" Placeholder="Identificação da amostragem" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Data da amostragem:" FontAttributes="Bold" TextColor="Black"/>
+                    <DatePicker x:Name="DataAmost" Format="dd/MM/yyyy" FontSize="Small" HorizontalOptions="FillAndExpand" />
+                    <Label Text="Objetivo:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Objetivo" FontSize="Small" Placeholder="Objetivo da amostragem" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Núm. de parcelas:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NParcelas" FontSize="Small" Placeholder="Número de parcelas ou pontos de amostragem" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Núm. de árv. por parc.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NArvParc" FontSize="Small" Placeholder="Número de árvores por parcela" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+
+                    <Label Text="Núm. am. tecicos/parc.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NRepTecidosParc" FontSize="Small" Placeholder="Número de repetições am. tecidos por parcela" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="NRepTecidosParc_TextChanged"/>
+                    <Label Text="Núm. am. tecidos/talh.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NRepTecidosTalh" FontSize="Small" Placeholder="Número de repetições am. tecidos por talhão" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Componentes a serem avaliados:" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.ColumnSpan="2"/>
+                        <CheckBox x:Name="Folhas" Grid.Row="1" Grid.Column="0" IsChecked="True" Color="#000000" VerticalOptions="Center"/>
+                        <Label Text="Folhas" TextColor="#000000" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        <CheckBox x:Name="Galhos" Grid.Row="2" Grid.Column="0" Color="#000000" VerticalOptions="Center"/>
+                        <Label Text="Galhos" TextColor="#000000" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        <CheckBox x:Name="Casca" Grid.Row="3" Grid.Column="0" Color="#000000" VerticalOptions="Center"/>
+                        <Label Text="Casca" TextColor="#000000" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        <CheckBox x:Name="Lenho" Grid.Row="4" Grid.Column="0" Color="#000000" VerticalOptions="Center"/>
+                        <Label Text="Lenho" TextColor="#000000" Grid.Row="4" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                        <CheckBox x:Name="Raizes" Grid.Row="5" Grid.Column="0" Color="#000000" VerticalOptions="Center"/>
+                        <Label Text="Raízes" TextColor="#000000" Grid.Row="5" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    </Grid>
+                    <Label Text="Núm. am. solos/parc.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NRepSoloParc" FontSize="Small" Placeholder="Número de repetições am. solos por parcela" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="NRepSoloParc_TextChanged"/>
+                    <Label Text="Núm. rep. am. solos/talh.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NRepSoloTalh" FontSize="Small" Placeholder="Número de repetições am. solos por talhão" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Núm. camadas solos/parc.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NCamadasSolo" FontSize="Small" Placeholder="Número de camadas de solo avaliadas" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Responsável:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Responsavel" FontSize="Small" Placeholder="Responsável pela amostragem" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Observações:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Observacoes" FontSize="Small" Placeholder="Observações" 
+                       HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            <BoxView Color="#ffdb58" Grid.Row="3" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="3" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="3" Grid.Column="1" Clicked="SaveAmostragemMN" HorizontalOptions="FillAndExpand" 
+                    x:Name="SaveBtn"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

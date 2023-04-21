@@ -1,12 +1,153 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SignusMobile20.pgCFormigasOP">
+             x:Class="SignusMobile20.pgCFormigasOP"
+             Title="Cadastro de Cont. de Formigas">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ToolBarItem3"
+                     Clicked="Informacoes_Clicked"
+                     Icon="ic_action_help_outline.png"
+                     Text="Informações"/>
+        <ToolbarItem Command="{Binding .}"
+                     Clicked="ExportarCFormigas_Clicked"
+                     Icon="Exp_excel.png"
+                     Order="Secondary"
+                     Text="Exportar para o Excel" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <Grid BackgroundColor="White" 
+              Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Button Text="Novo c. de formigas" 
+                HorizontalOptions="FillAndExpand" 
+                TextColor="Black" 
+                Clicked="NovoCFormigasOP_Clicked" 
+                Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Label x:Name="PKTalhoesCR" 
+                   FontSize="Medium" 
+                   FontAttributes="Bold" 
+                   TextColor="Black" 
+                   Grid.Row="1"  Grid.ColumnSpan="2"/>
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="2">
+                <StackLayout Padding="5" Grid.ColumnSpan="2">
+
+                    <ListView x:Name="lstCFormigasOP" 
+                          CachingStrategy="RecycleElement"
+                          HasUnevenRows="True" 
+                          ItemTapped="AlternaDetalhes"
+                          IsPullToRefreshEnabled="True">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remover" Clicked="DeleteCFormigasOP" IsDestructive="True" CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Alterar" Clicked="AlterarCFormigasOP" CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Controle de qualidade" Clicked="AvaliarQualidade" CommandParameter="{Binding .}"/>
+                                    </ViewCell.ContextActions>
+
+                                    <Frame 
+                                        CornerRadius="5" 
+                                        Margin="0" 
+                                        BackgroundColor="#ffedae" 
+                                        Padding="10"
+                                        BorderColor="Black">
+                                        <Grid ColumnSpacing="0" RowSpacing="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label x:Name="lblPKCFormigasOP" Grid.Row="0" 
+                                                   Text="{Binding PKCFormigasOP, StringFormat='Código do cont. formigas: {0:F0}'}" 
+                                                   FontSize="Medium"  
+                                                   FontAttributes="Bold" 
+                                                   TextColor="Orange"/>
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding IdentifOperacao, StringFormat='Identif. da operação: {0:F0}'}" 
+                                                   FontSize="Small"/>
+                                            <Label Grid.Row="2"
+                                                   Text="{Binding DataContr, StringFormat='Data da operação: {0:F0}'}" 
+                                                   FontSize="Small"/>
+
+                                            <Image x:Name="Img1" Grid.Row="3"
+                                                    VerticalOptions="Center"
+                                                    Source="{Binding Imagem}"/>
+
+
+                                            <Frame Grid.Row="4" 
+                                                   CornerRadius="5" Margin="0" Padding="2" IsVisible="{Binding Visible}">
+                                                <Grid BackgroundColor="#fff9e4" ColumnSpacing="0" RowSpacing="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding IdentifOperacao, StringFormat='Identif. da operação: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding ProcedOperac, StringFormat='Procedimento operacional: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding TipoContr, StringFormat='Tipo de controle: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="3" Grid.Column="0" Text="{Binding Produto, StringFormat='Produto utilizado: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="4" Grid.Column="0" FontSize="Small" FontAttributes="None">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding Dose, StringFormat='T: {0:F0}'}"/>
+                                                                <Span Text=" ("/>
+                                                                <Span Text="{Binding UnidDose, StringFormat='St: {0:F0}'}"/>
+                                                                <Span Text=") "/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Grid.Row="5" Grid.Column="0" Text="{Binding MetodoContr, StringFormat='Método de controle: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="6" Grid.Column="0" Text="{Binding Equipamento, StringFormat='Equipamento utilizado: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="7" Grid.Column="0" Text="{Binding DataContr, StringFormat='Data do controle: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="8" Grid.Column="0" Text="{Binding NumHoras, StringFormat='Número de horas: {0:F2}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="9" Grid.Column="0" Text="{Binding Rendimento, StringFormat='Rendimento operacional: {0:F2}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="10" Grid.Column="0" Text="{Binding EmpresaResp, StringFormat='Responsável: {0:F0}'}" FontSize="Small"/>
+                                                    <Label Grid.Row="11" Grid.Column="0" Text="{Binding Observacoes, StringFormat='Observações: {0:F0}'}" FontSize="Small"/>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </Frame>
+                                    <!--<TextCell Text="{Binding IdentifOperacao}" Detail="{Binding Equipamento}"/>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

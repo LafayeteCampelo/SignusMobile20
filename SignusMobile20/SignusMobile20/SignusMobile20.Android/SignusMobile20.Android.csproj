@@ -57,6 +57,9 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.8.116</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid">
+      <Version>21.1.41</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.XlsIO">
       <Version>20.4.0.54</Version>
     </PackageReference>
