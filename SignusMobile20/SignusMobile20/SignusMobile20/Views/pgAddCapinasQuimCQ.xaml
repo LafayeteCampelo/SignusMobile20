@@ -1,12 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SignusMobile20.pgAddCapinasQuimCQ">
+             x:Class="SignusMobile20.pgAddCapinasQuimCQ"
+             Title="Adicionar CapinasQuim (CQ)">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="White" Opacity="0.9">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView Color="#ffdb58" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Label Text="Código da operação: " FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="PKCapinasQuimOP" FontSize="Medium" FontAttributes="Bold" TextColor="Black" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="Código do controle de qualidade: " FontSize="Small" FontAttributes="Bold" TextColor="Black" Grid.Row="1" Grid.Column="0"/>
+            <Label x:Name="PKCapinasQuimCQ" FontSize="Small" FontAttributes="Bold" TextColor="Black" Grid.Row="1" Grid.Column="1"/>
+
+            <ScrollView Grid.ColumnSpan="2" BackgroundColor="White" Opacity="0.9" Grid.Row="2">
+                <StackLayout Padding="5">
+                    <Label Text="Repetição" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Repeticao" FontSize="Small" Placeholder="Número da repetição" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Área aplicada:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="AreaAplic" FontSize="Small" Placeholder="Área aplicada" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 1:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico1" FontSize="Small" Placeholder="Volume na saída/bico 1" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 2:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico2" FontSize="Small" Placeholder="Volume na saída/bico 2" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 3:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico3" FontSize="Small" Placeholder="Volume na saída/bico 3" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 4:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico4" FontSize="Small" Placeholder="Volume na saída/bico 4" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 5:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico5" FontSize="Small" Placeholder="Volume na saída/bico 5" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 6:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico6" FontSize="Small" Placeholder="Volume na saída/bico 6" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 7:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico7" FontSize="Small" Placeholder="Volume na saída/bico 7" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 8:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico8" FontSize="Small" Placeholder="Volume na saída/bico 8" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 9:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico9" FontSize="Small" Placeholder="Volume na saída/bico 9" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume saída 10:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolBico10" FontSize="Small" Placeholder="Volume na saída/bico 10" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Volume total:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VolTotal" FontSize="Small" Placeholder="Volume total" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="N. de plantas avaliadas:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="NPtsAval" FontSize="Small" Placeholder="Número de plantas avaliadas" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Vazão (média):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VazaoMed" FontSize="Small" Placeholder="Média aritmética das obs. de vazão" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Vazão (desvio):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VazaoDesv" FontSize="Small" Placeholder="Desvio padrão das obs. de vazão" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="N. de obs. vazão inf. mín.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VazaoInfMin" FontSize="Small" Placeholder="Número de obs. de vazão inferior à mínima" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de obs. vazão inf. méd.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VazaoInfMed" FontSize="Small" Placeholder="Número de obs. de vazão inferior à média" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de obs. vazão sup. méd.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VazaoSupMed" FontSize="Small" Placeholder="Número de obs. de vazão superior à média" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de obs. vazão sup. máx.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="VazaoSupMax" FontSize="Small" Placeholder="Número de obs. de vazão superior à máxima" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Pressão (média):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="PressaoMed" FontSize="Small" Placeholder="Média das observações de pressão" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="Pressão (desvio):" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="PressaoDesv" FontSize="Small" Placeholder="Desvio padrão das observações de pressão" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric" TextChanged="TextChanged"/>
+                    <Label Text="N. de obs. pressão inf. mín.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="PressaoInfMin" FontSize="Small" Placeholder="Número de obs. de pressão inferior à mínima" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de obs. pressão inf. méd.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="PressaoInfMed" FontSize="Small" Placeholder="Número de obs. de pressão inferior à média" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de obs. pressão sup. méd.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="PressaoSupMed" FontSize="Small" Placeholder="Número de obs. de pressão superior à média" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de obs. pressão sup. máx.:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="PressaoSupMax" FontSize="Small" Placeholder="Número de obs. de pressão superior à máxima" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de inconf. cobertura:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="InconfCobert" FontSize="Small" Placeholder="Número de inconformidades na cobertura" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="N. de inconf. deriva:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="InconfDeriva" FontSize="Small" Placeholder="Número de inconformidades na deriva" 
+                       HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    <Label Text="Avaliador:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Avaliador" FontSize="Small" Placeholder="Nome do responsável pela avaliação" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <Label Text="Data da avaliação:" FontAttributes="Bold" TextColor="Black"/>
+                    <DatePicker x:Name="DataAval" Format="dd/MM/yyyy" FontSize="Small" HorizontalOptions="FillAndExpand" />
+                    <Label Text="Observações:" FontAttributes="Bold" TextColor="Black"/>
+                    <Entry x:Name="Observacoes" FontSize="Small" Placeholder="Observações" 
+                       HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            <BoxView Color="#ffdb58" Grid.Row="3" Grid.ColumnSpan="2"/>
+            <Button Text="Cancelar" Grid.Row="3" Grid.Column="0" Clicked="CancelarEdicao" x:Name="CancelBtn"/>
+            <Button Text="Salvar" Grid.Row="3" Grid.Column="1" Clicked="SaveCapinasQuimCQ" HorizontalOptions="FillAndExpand" 
+                    x:Name="SaveBtn"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
